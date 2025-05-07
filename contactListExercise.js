@@ -37,6 +37,25 @@ class LinkedList {
             console.log(`outside while loop ${currentNode.next.data}`);
         }
     }
+    insertAfter(targetData, newData){
+        const newNode = new Node(newData);
+        if (this.head === null) {
+            console.log("List is empty, cannot insert. ");
+            return;
+        } else {
+            let currentNode = this.head;
+            while (currentNode !== null) {
+                if (currentNode.data === targetData) {
+                    newNode.next = currentNode.next;
+                    currentNode.next = newNode;
+                    return
+                }
+                currentNode = currentNode.next;
+    
+            }
+    
+        }
+    }
     print() {
         let currentPrintingNode = this.head;
         while (currentPrintingNode !== null) {
@@ -54,4 +73,8 @@ list.add("Charlie");
 list.add("Aman");
 list.add("Manu");
 list.add("Juliet");
+list.insertAfter("Bob", "John");
 list.print();
+
+
+
